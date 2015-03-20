@@ -6,6 +6,9 @@ var express = require('express'),
     stylus = require('stylus'),
     nib = require('nib')
 
+var yelp = require('./libs/yelp')
+console.log("require yelp " + yelp)
+
 var app = express()
 function compile(str, path) {
   return stylus(str)
@@ -22,8 +25,17 @@ app.use(stylus.middleware(
 ))
 app.use(express.static(__dirname + '/public'))
 
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
   res.render('index',
     { title: 'OnTheWay Home' })
 })
+
+app.get('/yelp', function(req, res) {
+  console.log(yelp.test)
+  var results = yelp.test()
+  console.log(results)
+  res.render('yelp',
+    { title: 'OnTheWay Yelp API', test: results })
+})
+
 app.listen(process.env.PORT || 3000)
