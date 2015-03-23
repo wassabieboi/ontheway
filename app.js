@@ -7,7 +7,8 @@ var express = require('express'),
     nib = require('nib')
 
 var yelp = require('./libs/yelp')
-console.log("require yelp " + yelp)
+
+console.log("starting app")
 
 var app = express()
 function compile(str, path) {
@@ -31,9 +32,7 @@ app.get('/', function(req, res) {
 })
 
 app.get('/yelp', function(req, res) {
-  console.log(yelp.test)
   var results = yelp.test()
-  console.log(results)
   res.render('yelp',
     { title: 'OnTheWay Yelp API', test: results })
 })

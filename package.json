@@ -7,7 +7,9 @@
     "morgan": "*",
     "jade": "*",
     "stylus": "*",
-    "nib": "*"
+    "nib": "*",
+    "request": "*",
+    "oauth-1.0a": "*"
   },
   "engines": {
     "node": "0.10.x"
